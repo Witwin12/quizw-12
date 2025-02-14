@@ -50,3 +50,8 @@ def vote(request, question_id):
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, "mypoll/detail.html", {"question": question})
+
+def reset_votes(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    question.choice_set.update(votes=0)  # รีเซ็ตทุกตัวเลือกของคำถามนี้ให้เป็น 0
+    return HttpResponseRedirect(reverse("mypoll:results", args=(question.id,)))
