@@ -19,5 +19,5 @@ from django.urls import include, path
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("mypoll/", include("mypoll.urls", namespace="mypoll")),  # เพิ่ม namespace="mypoll"
+    path("mypoll/", include("mypoll.urls", namespace="mypoll")),
 ]
